@@ -80,7 +80,7 @@
     "testEnvironment": "node"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,json}": [
+    "src/**/*.{js,ts,json}, test/**/*.{js,ts,json}": [
       "yarn lint",
       "yarn format",
       "git add ."
