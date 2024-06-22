@@ -11,9 +11,10 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
   const port = configService.get<number>('port');
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(port);
-  Logger.log(
-    `Application is running on: ${(await app.getUrl()).replace('[::1]', 'localhost')}`,
-  );
+  await app.listen(port, async () => {
+    Logger.log(
+      `Application is running on: ${(await app.getUrl()).replace('[::1]', 'localhost')}`,
+    );
+  });
 }
 bootstrap();
